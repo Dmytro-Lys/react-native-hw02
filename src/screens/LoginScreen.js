@@ -1,8 +1,7 @@
 import { StyleSheet, Text, View, ImageBackground, Button } from 'react-native';
 import { useState } from "react";
 import bgImage from '../../assets/images/photo_bg.jpg'
-import defaultAvatar from '../../assets/images/avatar1.jpg'
-import { Avatar, FormTitle, Input, FormSubmitButton, LinkButton } from '../components';
+import { FormTitle, Input, FormSubmitButton, LinkButton } from '../components';
 
 
 
@@ -15,7 +14,7 @@ const styles = StyleSheet.create({
   form: {
     position: 'relative',
     flex: 1,
-    marginTop: 263,
+    marginTop: 323,
     padding: 16,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
@@ -24,16 +23,13 @@ const styles = StyleSheet.create({
   },
   formElements: {
     flex: 1,
-    maxHeight: 182,
+    maxHeight: 116,  
     rowGap: 16,
   },
  
 });
 
-const RegistrationScreen = () => {
-  
- 
-   const [userName, setUserName] = useState("");
+const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -42,7 +38,6 @@ const RegistrationScreen = () => {
   }
 
   const reset = () => {
-    setUserName("")
     setEmail("")
     setPassword("")
   }
@@ -54,20 +49,17 @@ const RegistrationScreen = () => {
   return (
       <ImageBackground source={bgImage} resizeMode="cover" style={styles.imageBg}>
         <View style={styles.form}>
-          {/* <Avatar avatarImage={defaultAvatar}/> */}
-        <Avatar /> 
-      
-        <FormTitle text="Реєстрація" handleMarginTop={92} />
+     
+        <FormTitle text="Увійти" />
           <View style={styles.formElements}>
-            <Input inputName="userName" handleChange= {setUserName} inputValue={userName} />
             <Input inputName="email" handleChange= {setEmail} inputValue={email}/>
             <Input inputName="password" handleChange= {setPassword} inputValue={password}/>
           </View>
-          <FormSubmitButton title="Зареєструватися" onPress={onSubmit} />
-          <LinkButton title="Вже є акаунт? Увійти" onPress={onLink}/>
+          <FormSubmitButton title="Увійти" onPress={onSubmit} />
+          <LinkButton title="Немає акаунту? Зареєструватися" onPress={onLink}/>
         </View> 
       </ImageBackground>   
   );
 }
 
-export default RegistrationScreen;
+export default LoginScreen;

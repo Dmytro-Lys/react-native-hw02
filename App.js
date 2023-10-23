@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { useFonts } from 'expo-font';
-import {RegistrationScreen} from './src/screens'
+import {RegistrationScreen, LoginScreen, PostsScreen} from './src/screens'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -15,8 +15,9 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <RegistrationScreen/>
-      {/* <Text>Open up App.js to start working on your app!</Text> */}
+      {/* <RegistrationScreen/> */}
+      {/* <LoginScreen /> */}
+      <PostsScreen/>
       <StatusBar style="auto" />
     </View>
   );

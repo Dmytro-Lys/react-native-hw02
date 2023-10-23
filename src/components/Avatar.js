@@ -4,12 +4,10 @@ import SvgPlus from './SvgPlus'
 
 const styles = StyleSheet.create({
    box: {
-    flex: 1,
-    justifyContent: 'center',   
     position: 'absolute',
     top: -60,
     left: '50%',
-    transform: [{translateX: -60}],
+    transform: [{translateX: -50}],
     width: 120,
     height: 120,
     borderRadius: 16,

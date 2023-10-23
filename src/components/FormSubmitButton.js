@@ -3,11 +3,6 @@ import { StyleSheet, Pressable, Text } from "react-native";
 
 const styles = StyleSheet.create({
     buttonSubmit: {
-        // flex: 1,
-        // flexDirection: 'column',
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        // maxHeight: 50,
         borderRadius: 100,
         marginTop: 32,
         paddingHorizontal: 32,

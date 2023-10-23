@@ -4,3 +4,5 @@ export { default as FormTitle } from "./FormTitle.js";
 export { default as Input } from "./Input.js";
 export { default as FormSubmitButton } from "./FormSubmitButton.js";
 export { default as LinkButton } from "./LinkButton.js";
+export { default as ShowButton } from "./ShowButton.js";
+export { default as Header } from "./Header.js";

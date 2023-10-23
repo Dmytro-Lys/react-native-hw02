@@ -1,12 +1,16 @@
-import {StyleSheet, TextInput } from "react-native";
+import {StyleSheet, TextInput, View } from "react-native";
 import { useState } from "react";
 import inputProps from "../../assets/data/input.json"
+import ShowButton from "./ShowButton";
 
 const styles = StyleSheet.create({
+    inputBox: {
+      position: 'relative',    
+    },
     input: {
         padding: 16,
-        height: 50,
-        borderRadius: 16,
+        maxHeight: 50,
+        borderRadius: 8,
         borderWidth: 1,
         borderColor: '#E8E8E8',
         backgroundColor:'#F6F6F6',
@@ -16,26 +20,22 @@ const styles = StyleSheet.create({
     inputFocused: {
         borderColor: '#FF6C00',
         backgroundColor: '#fff'
-    }
-
+    },
 })   
 
 const Input = ({ inputName, handleChange, inputValue }) => {
-    // const [inputValue, setInputValue] = useState('');
-    const [isFocused, setIsFocused] = useState(false)
-    const [secureTextEntry, setSecureTextEntry] = useState(false)
+    const [isFocused, setIsFocused] = useState(type === 'password' ? true : false)
+    const [secureTextShow, setSecureTextShow] = useState(false)
     const { placeholder, pattern, type, minlength } = inputProps[inputName];
-    if (type === 'password' && !secureTextEntry ) setSecureTextEntry(true)
     
     const toggleFocus = focusStatus => {
        if (isFocused !== focusStatus) setIsFocused(focusStatus)    
     }
     
-    // const handleChange = value => {
-    //     if (value && inputValue !== value) type === "userName"  ? setInputValue(value.trimStart()) : setInputValue(value.trim());
-    // }
+    const toggleSecureTextShow = () => secureTextShow ? setSecureTextShow(false) :  setSecureTextShow(true)
 
     return (
+        <View style = {styles.inputBox}>
         <TextInput
             style={[styles.input, isFocused && styles.inputFocused]}
             onChangeText={handleChange}
@@ -48,10 +48,10 @@ const Input = ({ inputName, handleChange, inputValue }) => {
             type={type}
             minlength={minlength || '0'}
             maxlength='30'
-            secureTextEntry={ secureTextEntry}
-            required>
-            
-        </TextInput>
+            secureTextEntry={ secureTextShow}
+            required />
+        {type === 'password' && <ShowButton titleShow={secureTextShow ? "Показати" : "Сховати"} onPressShow={toggleSecureTextShow} />} 
+        </View>
       )
 }
 
