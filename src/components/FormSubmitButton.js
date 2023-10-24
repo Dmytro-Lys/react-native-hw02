@@ -5,10 +5,11 @@ import PropTypes from "prop-types"
 const styles = StyleSheet.create({
     buttonSubmit: {
         borderRadius: 100,
-        marginTop: 32,
+        marginTop: 43,
         paddingHorizontal: 32,
         paddingVertical: 16,
         backgroundColor: '#FF6C00',
+
     },
     buttonSubmitText: {
         fontFamily: 'Roboto-Regular',

@@ -8,14 +8,16 @@ import { FormTitle, Input, FormSubmitButton, LinkButton } from '../components';
 const styles = StyleSheet.create({
    imageBg: {
     flex: 1,
-    justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'flex-end',
 
   },
   form: {
     position: 'relative',
     flex: 1,
-    marginTop: 323,
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingTop: 32,
+    paddingBottom: 111,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     backgroundColor: '#fff',

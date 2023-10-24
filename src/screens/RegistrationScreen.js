@@ -6,8 +6,11 @@ import { Avatar, FormTitle, Input, FormSubmitButton, LinkButton, SvgPlusButton} 
 
 const styles = StyleSheet.create({
    imageBg: {
+    
     flex: 1,
-    justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+
   },
    box: {
     position: 'absolute',
@@ -32,8 +35,9 @@ const styles = StyleSheet.create({
   form: {
     position: 'relative',
     flex: 1,
-    marginTop: 263,
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingTop: 92,
+    paddingBottom: 45,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     backgroundColor: '#fff',
