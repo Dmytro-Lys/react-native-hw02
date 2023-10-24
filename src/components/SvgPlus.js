@@ -1,16 +1,14 @@
-import Svg, { Circle, Line, G } from 'react-native-svg';
+import Svg, { Line, G } from 'react-native-svg';
 
-const SvgPlus = ({ stroke, rotate = '0', height = "25", width = "25", fill = "#fff", strokeWidth = "1" }) => {
+const SvgPlus = ({ stroke, rotate = '0', height = "25", width = "25",  strokeWidth = "1" }) => {
     const cx = `${width / 2}`;
     const cy = `${height / 2}`;
-    const rx = `${cx - strokeWidth}`;
     const x1 = `${width / 4}`;
     const y1 = `${height / 4}`;
     const x2 = `${width - x1}`;
     const y2 = `${height - y1}`;
    return (
         <Svg height={height} width={width} >
-            <Circle cx={cx} cy={cy} r={rx} fill={fill} stroke={stroke} strokeWidth={strokeWidth} />
             <G rotation={rotate} origin={`${cx}, ${cy}`}>
               <Line x1={x1} y1={cy} x2={x2} y2={cy} stroke={stroke} strokeWidth={strokeWidth} />
               <Line x1={cx} y1={y2} x2={cx} y2={y1} stroke={stroke} strokeWidth={strokeWidth} />

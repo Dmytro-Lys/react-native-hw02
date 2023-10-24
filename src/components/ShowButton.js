@@ -1,5 +1,5 @@
 import { StyleSheet, Pressable, Text } from "react-native";
-
+import TextButton from "./TextButton";
 
 const styles = StyleSheet.create({
     buttonShow: {
@@ -15,13 +15,9 @@ const styles = StyleSheet.create({
 })   
 
 const ShowButton = ({ titleShow, onPressShow }) => {
-     return (
-         <Pressable
-            onPress={onPressShow}
-            style={styles.buttonShow}>
-           <Text style={styles.buttonShowTitle}>{titleShow}</Text>
-        </Pressable>
-    )
+    return (
+         <TextButton text={titleShow} onPress={onPressShow} styleButton={styles.buttonShow} styleText={styles.buttonShowTitle}/>
+     )
 }
 
 export default ShowButton;

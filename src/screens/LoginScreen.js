@@ -55,8 +55,8 @@ const LoginScreen = () => {
             <Input inputName="email" handleChange= {setEmail} inputValue={email}/>
             <Input inputName="password" handleChange= {setPassword} inputValue={password}/>
           </View>
-          <FormSubmitButton title="Увійти" onPress={onSubmit} />
-          <LinkButton title="Немає акаунту? Зареєструватися" onPress={onLink}/>
+          <FormSubmitButton text="Увійти" onPress={onSubmit} />
+          <LinkButton text="Немає акаунту? Зареєструватися" onPress={onLink}/>
         </View> 
       </ImageBackground>   
   );

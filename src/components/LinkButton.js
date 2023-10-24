@@ -1,5 +1,5 @@
 import { StyleSheet, Pressable, Text } from "react-native";
-
+import TextButton from "./TextButton";
 
 const styles = StyleSheet.create({
     buttonLink: {
@@ -15,14 +15,9 @@ const styles = StyleSheet.create({
     }
 })   
 
-
-const LinkButton = ({ title, onPress }) => {
-      return (
-         <Pressable
-            onPress={onPress}
-            style={styles.buttonLink}>
-           <Text style={styles.buttonLinkTitle}>{title}</Text>
-        </Pressable>
+const LinkButton = ({ text, onPress }) => {
+    return (
+          <TextButton text={text} onPress={onPress} styleButton={styles.buttonLink} styleText={styles.buttonLinkTitle}/>
     )
 }
 

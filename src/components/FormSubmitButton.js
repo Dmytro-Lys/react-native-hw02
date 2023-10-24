@@ -1,5 +1,5 @@
 import { StyleSheet, Pressable, Text } from "react-native";
-
+import TextButton from "./TextButton";
 
 const styles = StyleSheet.create({
     buttonSubmit: {
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         paddingVertical: 16,
         backgroundColor: '#FF6C00',
     },
-    buttonSubmitTitle: {
+    buttonSubmitText: {
         fontFamily: 'Roboto-Regular',
         fontSize: 16,
         textAlign: 'center',
@@ -19,14 +19,10 @@ const styles = StyleSheet.create({
 
 })   
 
-const FormSubmitButton = ({title, onPress}) => {
+const FormSubmitButton = ({text, onPress}) => {
     return (
-         <Pressable
-            onPress={onPress}
-            style={styles. buttonSubmit}>
-           <Text style={styles.buttonSubmitTitle}>{title}</Text>
-        </Pressable>
-    )
+        <TextButton text={text} onPress={onPress} styleButton={styles.buttonSubmit} styleText={styles.buttonSubmitText} />
+     )
 }
 
 export default FormSubmitButton;
