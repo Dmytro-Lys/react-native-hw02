@@ -7,4 +7,6 @@ export { default as LinkButton } from "./LinkButton.js";
 export { default as ShowButton } from "./ShowButton.js";
 export { default as TextButton } from "./TextButton.js";
 export { default as SvgPlusButton } from "./SvgPlusButton.js";
+export { default as SvgButton } from "./SvgButton.js";
 export { default as Header } from "./Header.js";
+export { default as Footer } from "./Footer.js";

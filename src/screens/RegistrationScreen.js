@@ -16,10 +16,6 @@ const styles = StyleSheet.create({
     transform: [{translateX: -50}],
   },
   buttonAdd: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: 'center',
-    alignItems: 'center',
     position: 'absolute',
     right: -12.5,
     bottom: 12.5,

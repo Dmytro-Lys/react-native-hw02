@@ -1,16 +1,14 @@
 import { StyleSheet, Pressable } from 'react-native';
-import SvgPlus from './SvgPlus'
+import { SvgXml } from 'react-native-svg';
 
 const styles = StyleSheet.create({
   buttonBase: {
-    flex: 1,
-
-       justifyContent: 'center',
-       alignItems: 'center',
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
     }
 })
-const SvgPlusButton = ({ styleButton, onPress, stroke, rotate = '0' }) => {
-    
+const SvgButton = ({styleButton, onPress, svgWidth, svgHeight, svgFile, fill='none'}) => {
     return (
           <Pressable
             onPress={onPress}
@@ -18,9 +16,9 @@ const SvgPlusButton = ({ styleButton, onPress, stroke, rotate = '0' }) => {
               {/* {({ pressed }) => (
           <SvgPlus stroke={pressed ? '#e8e8e8' : '#ff6c00'} rotate = {pressed ? '45' : '0'}/>
           )}   */}
-            <SvgPlus stroke={stroke} rotate = {rotate}/>
+            <SvgXml width={svgWidth} height={svgHeight} fill={fill} xml={svgFile} />
           </Pressable>    
     )
 }
 
-export default SvgPlusButton
+export default SvgButton
