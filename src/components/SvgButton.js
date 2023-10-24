@@ -1,5 +1,6 @@
 import { StyleSheet, Pressable } from 'react-native';
 import { SvgXml } from 'react-native-svg';
+import PropTypes from "prop-types";
 
 const styles = StyleSheet.create({
   buttonBase: {
@@ -8,17 +9,24 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     }
 })
-const SvgButton = ({styleButton, onPress, svgWidth, svgHeight, svgFile, fill='none'}) => {
+const SvgButton = ({ styleButton = {}, onPress, svgWidth, svgHeight, svgFile, fill = 'none', rotation = 0 }) => {
     return (
           <Pressable
             onPress={onPress}
             style={[styles.buttonBase, styleButton]}>
-              {/* {({ pressed }) => (
-          <SvgPlus stroke={pressed ? '#e8e8e8' : '#ff6c00'} rotate = {pressed ? '45' : '0'}/>
-          )}   */}
-            <SvgXml width={svgWidth} height={svgHeight} fill={fill} xml={svgFile} />
+            <SvgXml width={svgWidth} height={svgHeight} fill={fill} rotation={rotation} xml={svgFile} />
           </Pressable>    
     )
 }
 
 export default SvgButton
+
+SvgButton.propTypes = {
+   styleButton: PropTypes.object ,
+  onPress: PropTypes.func.isRequired,
+  svgWidth: PropTypes.string.isRequired,
+  svgHeight: PropTypes.string.isRequired,
+  svgFile: PropTypes.string.isRequired,
+  fill: PropTypes.string,
+   rotation: PropTypes.number
+}

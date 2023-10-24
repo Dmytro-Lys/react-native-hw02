@@ -1,5 +1,5 @@
 import { StyleSheet, View, Text } from "react-native";
-
+import PropTypes from "prop-types";
 
 const styles = StyleSheet.create({
     containerHeader: {
@@ -41,3 +41,7 @@ const Header = ({ title, children }) => {
 }
 
 export default Header;
+
+Header.propTypes = {
+   title: PropTypes.string.isRequired 
+}

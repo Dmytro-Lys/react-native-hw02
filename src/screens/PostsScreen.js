@@ -45,11 +45,12 @@ const styles = StyleSheet.create({
 
 const PostsScreen = () => {
     const logOut = () => alert("LogOut")
-
+    
+    
     return (
         <View style={styles.container}>
             <Header title="Публікації">
-                <SvgButton styleButton={styles.buttonSvg} onPress={logOut} svgWidth='24' svgHeight='24' svgFile={LogOutSvg}/>
+                <SvgButton styleButton={styles.buttonSvg} onPress={logOut} svgWidth='24' svgHeight='24' svgFile={LogOutSvg} />
             </Header>
             <ScrollView style={styles.postsContainer}>
                 <View style={styles.userContainer}>

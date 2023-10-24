@@ -1,5 +1,6 @@
-import { StyleSheet, Pressable, Text } from "react-native";
+import { StyleSheet } from "react-native";
 import TextButton from "./TextButton";
+import PropTypes from "prop-types";
 
 const styles = StyleSheet.create({
     buttonShow: {
@@ -21,3 +22,8 @@ const ShowButton = ({ titleShow, onPressShow }) => {
 }
 
 export default ShowButton;
+
+ShowButton.propTypes = {
+   titleShow: PropTypes.string.isRequired ,
+   onPressShow: PropTypes.func.isRequired
+}

@@ -1,7 +1,8 @@
-import {StyleSheet, TextInput, View } from "react-native";
+import {StyleSheet, TextInput, View, KeyboardAvoidingView, Platform } from "react-native";
 import { useState } from "react";
 import inputProps from "../../assets/data/input.json"
 import ShowButton from "./ShowButton";
+import PropTypes from "prop-types";
 
 const styles = StyleSheet.create({
     inputBox: {
@@ -25,9 +26,8 @@ const styles = StyleSheet.create({
 
 const Input = ({ inputName, handleChange, inputValue }) => {
     const [isFocused, setIsFocused] = useState(type === 'password' ? true : false)
-    const [secureTextShow, setSecureTextShow] = useState(false)
     const { placeholder, pattern, type, minlength } = inputProps[inputName];
-    
+    const [secureTextShow, setSecureTextShow] = useState(type === 'password')
     const toggleFocus = focusStatus => {
        if (isFocused !== focusStatus) setIsFocused(focusStatus)    
     }
@@ -35,7 +35,8 @@ const Input = ({ inputName, handleChange, inputValue }) => {
     const toggleSecureTextShow = () => secureTextShow ? setSecureTextShow(false) :  setSecureTextShow(true)
 
     return (
-        <View style = {styles.inputBox}>
+        <View style={styles.inputBox}>
+         <KeyboardAvoidingView  behavior={Platform.OS == "ios" ? "padding" : "height"}>
         <TextInput
             style={[styles.input, isFocused && styles.inputFocused]}
             onChangeText={handleChange}
@@ -50,9 +51,16 @@ const Input = ({ inputName, handleChange, inputValue }) => {
             maxlength='30'
             secureTextEntry={ secureTextShow}
             required />
+         </KeyboardAvoidingView>           
         {type === 'password' && <ShowButton titleShow={secureTextShow ? "Показати" : "Сховати"} onPressShow={toggleSecureTextShow} />} 
         </View>
       )
 }
 
 export default Input;
+
+Input.propTypes = {
+   inputName: PropTypes.string.isRequired ,
+    handleChange: PropTypes.func.isRequired,
+   inputValue: PropTypes.string.isRequired
+}

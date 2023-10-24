@@ -1,4 +1,4 @@
-import {  StyleSheet, View, Text } from "react-native";
+import {  StyleSheet, View } from "react-native";
 import SvgPlusButton from "./SvgPlusButton";
 import SvgButton from "./SvgButton";
 import GridSvg from "../../assets/images/grid.svg";

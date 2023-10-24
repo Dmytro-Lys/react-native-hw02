@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View, ImageBackground, Button } from 'react-native';
+import { StyleSheet, View, ImageBackground, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import { useState } from "react";
 import bgImage from '../../assets/images/photo_bg.jpg'
-import defaultAvatar from '../../assets/images/avatar1.jpg'
+import defaultAvatar from '../../assets/images/avatar.jpg'
 import { Avatar, FormTitle, Input, FormSubmitButton, LinkButton, SvgPlusButton} from '../components';
 
 const styles = StyleSheet.create({
@@ -50,11 +50,12 @@ const styles = StyleSheet.create({
 const RegistrationScreen = () => {
   
  
-   const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [avatarImage, setAvatarImage] = useState(null)
-  // const avatarImage = defaultAvatar
+  
+
 
   const onSubmit = () => {
     alert("Submit")
@@ -75,11 +76,13 @@ const RegistrationScreen = () => {
   const removeAvatar = () => setAvatarImage(null)
 
   return (
+      
       <ImageBackground source={bgImage} resizeMode="cover" style={styles.imageBg}>
+       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.form}>
         <View style={styles.box}>
           {avatarImage ? <Avatar avatarImage={avatarImage} size={120} /> : <Avatar size={120} />}
-          {avatarImage ? <SvgPlusButton onPress={removeAvatar} styleButton={[styles.buttonAdd, styles.buttonRemove]} stroke='#e8e8e8' rotate='45'/> : <SvgPlusButton onPress={addAvatar} styleButton={styles.buttonAdd} stroke='#ff6c00'/>}
+          {avatarImage ? <SvgPlusButton onPress={removeAvatar} styleButton={{ ...styles.buttonAdd, ...styles.buttonRemove }} stroke='#e8e8e8' rotate='45'/> : <SvgPlusButton onPress={addAvatar} styleButton={styles.buttonAdd} stroke='#ff6c00'/>}
         </View>
         <FormTitle text="Реєстрація" handleMarginTop={92} />
           <View style={styles.formElements}>
@@ -89,8 +92,10 @@ const RegistrationScreen = () => {
           </View>
           <FormSubmitButton text="Зареєструватися" onPress={onSubmit} />  
           <LinkButton text="Вже є акаунт? Увійти" onPress={onLink}/>
-         </View> 
-      </ImageBackground>   
+        </View> 
+       </TouchableWithoutFeedback> 
+      </ImageBackground>  
+      
   );
 }
 

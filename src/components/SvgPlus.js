@@ -1,4 +1,6 @@
 import Svg, { Line, G } from 'react-native-svg';
+import PropTypes from "prop-types";
+
 
 const SvgPlus = ({ stroke, rotate = '0', height = "25", width = "25",  strokeWidth = "1" }) => {
     const cx = `${width / 2}`;
@@ -31,3 +33,12 @@ const SvgPlus = ({ stroke, rotate = '0', height = "25", width = "25",  strokeWid
 
 
 export default SvgPlus;
+
+
+SvgPlus.propTypes = {
+  stroke: PropTypes.string.isRequired,
+  rotate: PropTypes.string,
+  height: PropTypes.string,
+  width: PropTypes.string,
+  strokeWidth: PropTypes.string
+}

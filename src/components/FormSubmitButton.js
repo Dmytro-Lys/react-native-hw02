@@ -1,5 +1,6 @@
-import { StyleSheet, Pressable, Text } from "react-native";
+import { StyleSheet } from "react-native";
 import TextButton from "./TextButton";
+import PropTypes from "prop-types"
 
 const styles = StyleSheet.create({
     buttonSubmit: {
@@ -26,3 +27,8 @@ const FormSubmitButton = ({text, onPress}) => {
 }
 
 export default FormSubmitButton;
+
+FormSubmitButton.propTypes = {
+   text: PropTypes.string.isRequired ,
+   onPress: PropTypes.func.isRequired
+}

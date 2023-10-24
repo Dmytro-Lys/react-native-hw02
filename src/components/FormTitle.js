@@ -1,4 +1,5 @@
 import { Text } from "react-native";
+import PropTypes from "prop-types";
 
 const FormTitle = ({ text, handleMarginTop = 32  }) => {
     return (
@@ -14,3 +15,8 @@ const FormTitle = ({ text, handleMarginTop = 32  }) => {
 }
 
 export default FormTitle;
+
+FormTitle.propTypes = {
+   text: PropTypes.string.isRequired ,
+   handleMarginTop: PropTypes.number
+}

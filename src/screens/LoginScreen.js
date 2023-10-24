@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ImageBackground, Button } from 'react-native';
+import { StyleSheet, View, ImageBackground,  TouchableWithoutFeedback, Keyboard} from 'react-native';
 import { useState } from "react";
 import bgImage from '../../assets/images/photo_bg.jpg'
 import { FormTitle, Input, FormSubmitButton, LinkButton } from '../components';
@@ -47,17 +47,26 @@ const LoginScreen = () => {
   }
   
   return (
-      <ImageBackground source={bgImage} resizeMode="cover" style={styles.imageBg}>
-        <View style={styles.form}>
-     
-        <FormTitle text="Увійти" />
+    <ImageBackground source={bgImage} resizeMode="cover" style={styles.imageBg}>
+       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      
+       <View style={styles.form}>
+        
+          <FormTitle text="Увійти" />
           <View style={styles.formElements}>
-            <Input inputName="email" handleChange= {setEmail} inputValue={email}/>
-            <Input inputName="password" handleChange= {setPassword} inputValue={password}/>
+            
+              <Input inputName="email" handleChange={setEmail} inputValue={email} />
+            
+             {/* <KeyboardAvoidingView  behavior={Platform.OS == "ios" ? "padding" : "height"}> */}
+              <Input inputName="password" handleChange={setPassword} inputValue={password} />
+           {/* </KeyboardAvoidingView>      */}
           </View>
           <FormSubmitButton text="Увійти" onPress={onSubmit} />
-          <LinkButton text="Немає акаунту? Зареєструватися" onPress={onLink}/>
+            <LinkButton text="Немає акаунту? Зареєструватися" onPress={onLink} />
+         {/* </KeyboardAvoidingView>    */}
         </View> 
+        
+         </TouchableWithoutFeedback>
       </ImageBackground>   
   );
 }
